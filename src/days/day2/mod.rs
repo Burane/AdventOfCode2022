@@ -2,7 +2,7 @@ use super::get_input;
 use std::{ops::Add, str::FromStr};
 
 /**
- * --- Day 2: Calorie Counting ---
+ * --- Day 2 ---
  *
  * https://adventofcode.com/2022/day/2
  */
