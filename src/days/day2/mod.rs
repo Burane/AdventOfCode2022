@@ -8,6 +8,7 @@ use std::{ops::Add, str::FromStr};
  */
 
 pub fn solve() {
+    println!("Day 2 :");
     part_one();
     part_two();
 }

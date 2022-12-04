@@ -8,6 +8,7 @@ use super::get_input;
  * https://adventofcode.com/2022/day/3
  */
 pub fn solve() {
+    println!("Day 3 :");
     part_one();
     part_two();
 }
