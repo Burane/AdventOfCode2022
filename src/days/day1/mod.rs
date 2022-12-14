@@ -14,7 +14,7 @@ pub fn solve() {
 fn part_one() {
     let input = get_input(1);
     let soluce = input
-        .split("\r\n\r\n")
+        .split("\n\n")
         .map(|split| {
             split
                 .lines()
@@ -32,7 +32,7 @@ fn part_one() {
 fn part_two() {
     let input = get_input(1);
     let mut sums: Vec<isize> = input
-        .split("\r\n\r\n")
+        .split("\n\n")
         .map(|split| {
             split
                 .lines()
