@@ -5,6 +5,7 @@ use days::day2;
 use days::day3;
 use days::day4;
 use days::day5;
+use days::day6;
 
 /**
  * Advent of Code 2022 written in rust
@@ -16,4 +17,5 @@ fn main() {
     day3::solve();
     day4::solve();
     day5::solve();
+    day6::solve();
 }
