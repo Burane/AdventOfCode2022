@@ -62,8 +62,56 @@ fn part_one() {
         for c in top_chars {
             print!("{c}");
         }
-        print!("\n")
+        print!("\n");
 
 }
 
-fn part_two() {}
+fn part_two() {
+    let input = get_input(5);
+    let (towers_str, moves) = input.split_once("\n\n").unwrap();
+
+    let mut towers: HashMap<usize, VecDeque<char>> = HashMap::new();
+
+    towers_str.lines().for_each(|line| {
+        let mut line_str = line.to_string();
+        line_str.push(' ');
+        let chars = line_str.chars();
+
+        (&chars.chunks(4))
+            .into_iter()
+            .enumerate()
+            .for_each(|(i, mut chunk)| {
+                let (_, letter, _, _) = chunk.next_tuple().unwrap();
+                if letter.is_alphabetic() {
+                    towers
+                        .entry(i)
+                        .or_insert_with(VecDeque::new)
+                        .push_front(letter);
+                }
+            });
+    });
+
+    moves.lines().for_each(|line| {
+        let (m, f, t) = line
+            .split_whitespace()
+            .filter_map(|chunk| chunk.parse::<usize>().ok())
+            .collect_tuple()
+            .unwrap();
+
+            let vec = towers.get_mut(&(f - 1)).unwrap();
+            let mut elems = vec.split_off(vec.len() - m);
+            towers.get_mut(&(t - 1)).unwrap().append(& mut elems);
+
+    });
+
+    let top_chars : Vec<char> = towers
+        .into_iter()
+        .sorted()
+        .map(|(_, tower)| tower.back().unwrap().to_owned())
+        .collect();
+    
+        for c in top_chars {
+            print!("{c}");
+        }
+        print!("\n");
+}
